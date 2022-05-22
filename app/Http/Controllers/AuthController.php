@@ -104,7 +104,7 @@ class AuthController extends Controller {
         $user->name = $request['name'];
         $user->email = $request['email'];
         $user->save();
-        return response()->json(['message' => 'usuario actualizado']);
+        return response()->json(['message' => 'Usuario actualizado']);
     }
 
     /**
