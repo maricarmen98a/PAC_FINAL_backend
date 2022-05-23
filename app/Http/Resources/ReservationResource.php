@@ -25,7 +25,6 @@ class ReservationResource extends JsonResource
           'airline' => $this->airline,
           'seat' => $this->seat,
           'status' => $this->status,
-          'tax' => $this->tax,
           'assigned_flight_id' => $this-> assigned_flight_id
         ];
     }

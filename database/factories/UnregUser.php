@@ -9,9 +9,6 @@ $factory->define(UnregUser::class, function (Faker $faker) use ($factory)  {
 
     return [
         'name'=> $faker->name,
-        'email'=> $faker->unique()->safeEmail,
-/*         'email_verified_at' => now()
- *//*         'reservation_code' => Str::random(10)
- */        
+        'email'=> $faker->unique()->safeEmail       
     ];
 });

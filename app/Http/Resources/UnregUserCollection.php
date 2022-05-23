@@ -15,7 +15,10 @@ class UnregUserCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'data' => UnregUserResource::collection($this->collection)
+            'data' => UnregUserResource::collection($this->collection),
+            'meta' => [
+                'user count' => $this->collection->count()
+            ]
         ];
     }
 }

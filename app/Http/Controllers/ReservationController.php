@@ -32,11 +32,11 @@ class ReservationController extends Controller
         return new ReservationResource($reservation);
     }
 
-    public function update(Reservation $reservation, Request $request)
+    public function update(Request $request, Reservation $reservation)
     {
         $reservation->update($request->all());
 
-        return new ReservationResource($reservation);
+        return response()->json($reservation, 200);
     }
 
     public function destroy(Reservation $reservation)

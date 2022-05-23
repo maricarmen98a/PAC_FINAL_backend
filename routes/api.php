@@ -31,6 +31,7 @@ Route::get('bookings', 'FlightController@getBooking');
 Route::post('bookings', 'BookingController@store');
 Route::get('reservations', 'FlightController@getReservation');
 Route::post('reservations', 'ReservationController@store');
+Route::put('reservations/{reservation}', 'ReservationController@update');
 Route::get('unreguser', 'UnregUserController@show');
 Route::post('unreguser', 'UnregUserController@store');
 /* 

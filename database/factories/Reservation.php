@@ -20,7 +20,8 @@ $factory->define(Reservation::class, function (Faker $faker) use ($factory)  {
         'destination' => $booking->destination,
         'price' => $booking->price,*/
         'reservation_code' => Str::random(10),
-        'seat' => $faker->numberBetween(1,90) . strtoupper($faker->randomElement())
+         'seat' => $faker->numberBetween(1,23) . strtoupper($faker->randomElement(['A', 'B', 'C', 'D', 'E', 'F'])) 
+
     ];
 });
 

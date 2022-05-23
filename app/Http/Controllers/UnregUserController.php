@@ -6,6 +6,7 @@ use App\Http\Resources\UnregUserCollection;
 use App\Http\Resources\UnregUserResource;
 use App\Models\Flight;
 use App\UnregUser;
+use Validator;
 use Illuminate\Http\Request;
 
 class UnregUserController extends Controller
@@ -27,12 +28,27 @@ class UnregUserController extends Controller
 
     public function store(Request $request)
     {
-        $unreguser = new UnregUser([
-          'name' => $request->get('name'),
-          'email' => $request->get('email'),
+       
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|between:2,100',
+            'email' => 'required|string|email|max:100|unique:unreg_users'
         ]);
-        $unreguser->save();
-        return response()->json('Successfully added');
+
+        if($validator->fails()){
+             return response()->json($validator->errors(), 400);
+        }
+
+        $unreguser = new UnregUser([
+                'name' => $request->get('name'),
+                'email' => $request->get('email'),
+                ]);       
+         $unreguser->save();
+
+        return response()->json([
+            'message' => 'Usuario registrado correctamente',
+            'user' => $unreguser
+        ], 201);
     }
 
     public function update(UnregUser $unregUser, Request $request)
