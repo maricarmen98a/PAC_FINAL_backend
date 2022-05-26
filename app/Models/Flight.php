@@ -34,9 +34,9 @@ class Flight extends Model
     public function city() {
         return $this->hasMany(City::class);
     } 
-   /*  public function User() {
-        return $this->belongsTo('App\User');
-    } */
+     public function Reservation() {
+        return $this->hasMany('App\Models\Reservation');
+    } 
     /* public function reservation_code()
 {
     return $this->belongsTo('App\Models\Reservation', 'reservation_code');
@@ -45,7 +45,5 @@ class Flight extends Model
     {
       return $this->reservation_code;
     } */
-    public function Booking() {
-        return $this->belongsTo('App\Models\Booking');
-      }
+
 }

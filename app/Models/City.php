@@ -14,10 +14,7 @@ class City extends Model
     {
         return $this->belongsTo(Flight::class);
     }
-    public function booking()
-{
-    return $this->belongsTo(Booking::class,'origin');
-}
+
     public function getAirportsAttribute()
     {
         

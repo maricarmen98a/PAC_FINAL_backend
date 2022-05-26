@@ -49,8 +49,8 @@ class UnregUser extends Model {
         return $this->hasMany('App\Models\Reservation');
     }
  */
-    public function Booking() {
-        return $this->hasMany('App\Models\Booking');
+    public function Reservation() {
+        return $this->hasMany('App\Models\Reservation');
     }
     /* public function FlightUser() {
         return $this->hasMany('App\Models\FlightUser');

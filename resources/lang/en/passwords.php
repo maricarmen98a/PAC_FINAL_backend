@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'reset' => 'Su contraseña se ha establecido',
+    'reset' => 'Su contraseña se ha restablecido',
     'sent' => '¡Ya le hemos enviado el correo para restablecer su contraseña!',
     'throttled' => 'Por favor, espere antes de intentarlo de nuevo.',
     'token' => 'El token es incorrecto.',

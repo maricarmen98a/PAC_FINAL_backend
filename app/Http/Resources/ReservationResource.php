@@ -16,7 +16,6 @@ class ReservationResource extends JsonResource
     {
         return [
           'id' => $this->id,
-          'booking_id' => $this->booking_id,
           'passenger_name' => $this->passenger_name,
           'passenger_email' => $this->passenger_email,
           'reservation_code' => $this->reservation_code,
@@ -25,6 +24,10 @@ class ReservationResource extends JsonResource
           'airline' => $this->airline,
           'seat' => $this->seat,
           'status' => $this->status,
+          'boarding_time' => $this->boarding_time,
+          'arrival_time' => $this->arrival_time,
+          'boarding_hour' => $this->boarding_hour,
+          'arrival_hour' => $this->arrival_hour,
           'assigned_flight_id' => $this-> assigned_flight_id
         ];
     }

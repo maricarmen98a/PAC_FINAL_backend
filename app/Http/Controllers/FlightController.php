@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Models\Flight;
 use App\Models\Country;
-use App\Models\Booking;
 use App\Models\Reservation;
 use App\Models\City;
 use App\Http\Resources\FlightCollection;
@@ -28,10 +27,6 @@ class FlightController extends Controller {
     public function getCountries(){
         $countries = Country::get();
         return response()->json($countries);
-    }
-    public function getBooking(){
-        $bookings = Booking::get();
-        return response()->json($bookings);
     }
     public function getReservation(){
         $reservations = Reservation::get();

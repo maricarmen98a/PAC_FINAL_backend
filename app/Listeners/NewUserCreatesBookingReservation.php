@@ -3,7 +3,6 @@
 namespace App\Listeners;
 
 use App\Events\UserCreated;
-use App\Models\Booking;
 use App\Models\Flight;
 use App\Models\FlightUser;
 use App\Models\Reservation;
@@ -32,29 +31,21 @@ class NewUserCreatesBookingReservation
     {
         $flight = factory(Flight::class)->create([  
         ]);
-        $booking = factory(Booking::class)->create([
-            'user_id' => $event->user->id,
-            'name' => $event->user->name,
-            'email' => $event->user->email,
-            'airline' => $flight->airline,
-            'origin' => $flight->origin,
-            'destination' => $flight->destination,
-            'price' => $flight->price,
-            'promo_code' => $flight->reservation_code,
-        ]);
-
-       
         $reservation = factory(Reservation::class)->create([
             'user_id' => $event->user->id,
-            'booking_id' => $booking->id,
-            'flight_id' => factory(Flight::class),
+            'flight_id' => $flight->id,
             'passenger_name' => $event->user->name,
             'passenger_email' => $event->user->email,
             'status' => 'active',
             'airline' => $flight->airline,
             'origin' => $flight->origin,
             'destination' => $flight->destination,
-            'price' => $flight->price
+            'price' => $flight->price,
+            'boarding_time' => $flight->boarding_time, 
+            'arrival_time' => $flight->arrival_time, 
+            'boarding_hour' => $flight->boarding_hour, 
+            'arrival_hour' => $flight->arrival_hour,
+ 
         ]);
         factory(FlightUser::class)->create([
             'flight_id' => factory(Flight::class),

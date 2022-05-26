@@ -8,7 +8,6 @@ class Reservation extends Model
 {
     protected $fillable = [
       'user_id',
-      'booking_id',
       'flight_id',
       'passenger_name',
       'passenger_email',
@@ -18,7 +17,11 @@ class Reservation extends Model
       'airline',
       'status',
       'seat',
-      'price'
+      'price',
+      'boarding_time', 
+      'arrival_time',
+      'boarding_hour',
+      'arrival_hour',
     ];
 
 

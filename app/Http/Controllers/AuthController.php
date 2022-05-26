@@ -31,11 +31,11 @@ class AuthController extends Controller {
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
+            return response()->json($validator->errors(), 400);
         }
 
         if (! $token = auth()->attempt($validator->validated())) {
-            return response()->json(['error' => 'Su correo electrónico o contraseña es incorrecto.'], 401);
+            return response()->json(['error' => 'Su correo electrónico o contraseña es incorrecto.'], 400);
         }
 
         return $this->createNewToken($token);

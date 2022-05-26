@@ -16,7 +16,6 @@ class CreateReservationsTable extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('booking_id');
             $table->unsignedBigInteger('flight_id');
             $table->string('passenger_name');
             $table->string('passenger_email');
@@ -24,6 +23,10 @@ class CreateReservationsTable extends Migration
             $table->string('origin');
             $table->string('destination');
             $table->string('airline');
+            $table->date('boarding_time');
+            $table->date('arrival_time');
+            $table->time('boarding_hour');
+            $table->time('arrival_hour');
             $table->enum('status', ['active','pending','cancelled']);
             $table->string('seat');
             $table->float('price')->default(0.00);
