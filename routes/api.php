@@ -31,3 +31,5 @@ Route::post('reservations', 'ReservationController@store');
 Route::put('reservations/{reservation}', 'ReservationController@update');
 Route::get('unreguser', 'UnregUserController@show');
 Route::post('unreguser', 'UnregUserController@store');
+
+Route::post('send/email', 'HomeController@mail')->name('email');
