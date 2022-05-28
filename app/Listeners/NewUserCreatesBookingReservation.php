@@ -36,7 +36,6 @@ class NewUserCreatesBookingReservation
             'flight_id' => $flight->id,
             'passenger_name' => $event->user->name,
             'passenger_email' => $event->user->email,
-            'status' => 'active',
             'airline' => $flight->airline,
             'origin' => $flight->origin,
             'destination' => $flight->destination,

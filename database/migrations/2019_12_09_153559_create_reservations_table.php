@@ -19,6 +19,8 @@ class CreateReservationsTable extends Migration
             $table->unsignedBigInteger('flight_id');
             $table->string('passenger_name');
             $table->string('passenger_email');
+            $table->string('passenger_phone');
+            $table->string('passenger_passport');
             $table->string('reservation_code')->nullable();
             $table->string('origin');
             $table->string('destination');
@@ -27,7 +29,6 @@ class CreateReservationsTable extends Migration
             $table->date('arrival_time');
             $table->time('boarding_hour');
             $table->time('arrival_hour');
-            $table->enum('status', ['active','pending','cancelled']);
             $table->string('seat');
             $table->float('price')->default(0.00);
             $table->timestamps();
