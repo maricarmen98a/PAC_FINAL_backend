@@ -46,13 +46,5 @@ class NewUserCreatesBookingReservation
             'arrival_hour' => $flight->arrival_hour,
  
         ]);
-        factory(FlightUser::class)->create([
-            'flight_id' => factory(Flight::class),
-            'user_id' => $event->user->id,
-            'reservation_code' => $reservation->reservation_code,
-        ]);
-       
-
-
     }
 }
