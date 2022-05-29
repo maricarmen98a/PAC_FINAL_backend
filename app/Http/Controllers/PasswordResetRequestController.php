@@ -9,16 +9,18 @@ use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-
+use Validator;
 class PasswordResetRequestController extends Controller
 {
     public function sendPasswordResetEmail(Request $request){
-        // If email does not exist
-        if(!$this->validEmail($request->email)) {
+        $request->validate([
+            'email'=>'required|email|string|max:255'
+        ]);
+         if(!$this->validEmail($request->email)) {
             return response()->json([
-                'message' => 'El correo electrónico proporcionado no existe.'
-            ], Response::HTTP_NOT_FOUND);
-        } else {
+                'error' => 'El correo electrónico proporcionado no existe.'
+            ], 400);
+        }  else {
             // If email exists
             $this->sendMail($request->email);
             return response()->json([
@@ -32,7 +34,9 @@ class PasswordResetRequestController extends Controller
         Mail::to($email)->send(new SendMail($token));
     }
     public function validEmail($email) {
+        
        return !!User::where('email', $email)->first();
+       
     }
     public function generateToken($email){
       $isOtherToken = DB::table('recover_password')->where('email', $email)->first();
