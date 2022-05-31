@@ -19,8 +19,8 @@ Route::group([
     Route::post('refresh', 'AuthController@refresh');
     Route::get('user-profile', 'AuthController@userProfile');
     Route::post('user-profile', 'AuthController@profileUpdate');
-    Route::post('/reset-password-request', [PasswordResetRequestController::class, 'sendPasswordResetEmail']);
-    Route::post('/change-password', [ChangePasswordController::class, 'passwordResetProcess']);
+    Route::post('/reset-password-request', 'PasswordResetRequestController@sendPasswordResetEmail');
+    Route::post('/change-password', 'ChangePasswordController@passwordResetProcess');
 });
 
 Route::get('flights', 'FlightController@getFlight');

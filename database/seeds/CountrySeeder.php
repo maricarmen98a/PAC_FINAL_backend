@@ -18,7 +18,6 @@ class CountrySeeder extends Seeder
            
            
             ['name' => 'Bélgica', 'country_code' => 'BE'],
-            ['name' => 'Bermuda', 'country_code' => 'BM'],
             ['name' => 'Brasil', 'country_code' => 'BR'],
             ['name' => 'Canadá', 'country_code' => 'CA'],
             ['name' => 'Chile', 'country_code' => 'CL'],
