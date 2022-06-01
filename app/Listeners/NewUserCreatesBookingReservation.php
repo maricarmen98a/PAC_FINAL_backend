@@ -29,11 +29,11 @@ class NewUserCreatesBookingReservation
      */
     public function handle(UserCreated $event)
     {
-        $flight = factory(Flight::class)->create([  
-        ]);
-        $reservation = factory(Reservation::class)->create([
+        $flight = \App\Models\Flight::factory()->create([]);
+        
+        $reservation = \App\Models\Reservation::factory()->create([
             'user_id' => $event->user->id,
-            'flight_id' => $flight->id,
+            'flight_id' => $flight->flight_number,
             'passenger_name' => $event->user->name,
             'passenger_email' => $event->user->email,
             'airline' => $flight->airline,
