@@ -34,9 +34,6 @@ class UnregUser extends Model {
      *
      * @var array
      */
-  /*   protected $casts = [
-        'email_verified_at' => 'datetime',
-    ]; */
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
@@ -44,18 +41,7 @@ class UnregUser extends Model {
      * @return mixed
      */
    
-
-  /*   public function Reservation() {
-        return $this->hasMany('App\Models\Reservation');
-    }
- */
     public function Reservation() {
         return $this->hasMany('App\Models\Reservation');
     }
-    /* public function FlightUser() {
-        return $this->hasMany('App\Models\FlightUser');
-    }
-    public function Flight() {
-        return $this->hasMany('App\Models\Flights');
-    } */
 }

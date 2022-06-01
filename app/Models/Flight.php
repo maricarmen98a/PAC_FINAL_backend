@@ -15,35 +15,16 @@ class Flight extends Model
         'boarding_hour',
         'arrival_hour',
         'reservation_code'
-/*         'arrival_time',
-        'arrival_time', */
     ];
     protected $hidden = [
         'created_at',
         'updated_at'
     ];
-    /* public $fillable = [
-        'flightNumber',
-        'arrivalAirport_id',
-        'arrivalDatetime',
-        'departureAirport_id',
-        'departureDatetime'
-    ]; */
-/*     protected $dateFormat = 'd/m/Y';
- */
+   
     public function city() {
         return $this->hasMany(City::class);
     } 
      public function Reservation() {
         return $this->hasMany('App\Models\Reservation');
     } 
-    /* public function reservation_code()
-{
-    return $this->belongsTo('App\Models\Reservation', 'reservation_code');
-} */
-    /* public function getReservationCodeAttribute()
-    {
-      return $this->reservation_code;
-    } */
-
 }

@@ -18,9 +18,6 @@ $factory->define(Flight::class, function (Faker $faker) use ($city) {
 
     $origin = $faker->randomElement($city->airports);
     $destination = $faker->randomElement(array_diff($city->airports, [$origin]));
-    $flightHours = $faker->numberBetween(1, 8);
-
-    $flightTime = new DateInterval('PT' . $flightHours . 'H');
     $arrival = $faker->dateTimeBetween('0 week', '+10 week'); 
     $depart = clone $arrival;
     $hourBoarding = $faker->dateTimeBetween('9:00:00', '21:00:00')->format('H:i'); 
@@ -36,7 +33,6 @@ $factory->define(Flight::class, function (Faker $faker) use ($city) {
         'arrival_time' => $arrival,
         'boarding_hour' => $hourBoarding,
         'arrival_hour' =>  $hourArrival,
-        'reservation_code' => Str::random(10),
-        
+        'reservation_code' => Str::random(10), 
     ];
 });
