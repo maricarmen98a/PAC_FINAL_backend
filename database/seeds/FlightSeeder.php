@@ -14,7 +14,8 @@ class FlightSeeder extends Seeder
      */
     public function run()
     {
-      factory(App\Models\Flight::class, 1000)->create();
+      \App\Models\Flight::factory()->count(10)->create(); 
+
     }
        
     }
