@@ -12,7 +12,7 @@ class UserSeed extends Seeder
      */
     public function run()
     {
-        \App\User::factory()->count(10)->create(); 
+        \App\User::factory()->count(50)->create(); 
 
     }
 }
